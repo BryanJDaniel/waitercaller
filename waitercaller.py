@@ -24,11 +24,11 @@ from forms import RegistrationForm
 from forms import LoginForm
 from forms import CreateTableForm
 
-import config.py
-if config.test:
-    from mockdbhelper import MockDBHelper as DBHelper
-else:
-    from dbhelper import DBHelper
+# import config.py
+# if config.test:
+    # from mockdbhelper import MockDBHelper as DBHelper
+# else:
+from dbhelper import DBHelper
 
 app = Flask(__name__)
 app.secret_key = 'tPXJY3X37Qybz4QykV+hOyUxVQeEXf1Ao2C8upz+fGQXKsM'
