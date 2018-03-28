@@ -25,7 +25,7 @@ from forms import LoginForm
 from forms import CreateTableForm
 
 import config
-if config.test
+if config.test:
     from mockdbhelper import MockDBHelper as DBHelper
 else:
     from dbhelper import DBHelper
