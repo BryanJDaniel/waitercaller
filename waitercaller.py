@@ -24,7 +24,7 @@ from forms import RegistrationForm
 from forms import LoginForm
 from forms import CreateTableForm
 
-import config
+import config.py
 if config.test:
     from mockdbhelper import MockDBHelper as DBHelper
 else:
