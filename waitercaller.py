@@ -3,10 +3,15 @@ from flask import redirect
 from flask import render_template
 from flask import request
 from flask import url_for
-from flask.ext.login import LoginManager
-from flask.ext.login import login_required
-from flask.ext.login import login_user
-from flask.ext.login import logout_user
+
+# from flask.ext.login import LoginManager
+# from flask.ext.login import login_required
+# from flask.ext.login import login_user
+# from flask.ext.login import logout_user
+from flask_login import LoginManager
+from flask_login import login_required
+from flask_login import login_user
+from flask_login import logout_user
 
 from mockdbhelper import MockDBHelper as DBHelper
 from passwordhelper import PasswordHelper
@@ -49,7 +54,8 @@ def register():
     if DB.get_user(email):
         return redirect(url_for('home'))
     salt = PH.get_salt()
-    hashed = PH.get_hash(pw1 + salt)
+    salt = salt.decode('utf-8')
+    hashed = PH.get_hash((pw1 + salt))
     DB.add_user(email, salt, hashed)
     return redirect(url_for('home'))
 
